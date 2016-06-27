@@ -1,0 +1,95 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="..\..\bower_components/polymer/polymer.html">
+
+<dom-module id="my-droneone" selected="droneone">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .inner-sec paper-drawer-panel.style-scope.my-droneone.x-scope.paper-drawer-panel-0 {
+    position: absolute;
+    display: block;
+    height: 100%;
+    top: inherit;
+}
+.inner-sec paper-header-panel.style-scope.my-droneone {
+    border-right: 5px solid #999;
+    position: absolute;
+    width: 100%;
+}
+.paper-tabs-0 #tabsContainer.paper-tabs {
+    border-bottom: 2px solid #999;
+}
+    </style>
+    <paper-tabs selected="{{selected}}" selectedIndex="0" active>
+  <paper-tab>Issues</paper-tab>
+  <paper-tab>Media</paper-tab>
+</paper-tabs>
+
+<iron-pages selected="{{selected}}">
+<!--Tab1 Content Starts -->
+  <div>Page 2</div>
+<!--Tab1 Content Ends -->
+
+<!--Tab2 Content Starts -->
+  <div class="inner-sec" active>
+  <paper-drawer-panel>
+  <paper-header-panel drawer>
+    <div><drone-inbar></drone-inbar> </div>
+  </paper-header-panel>
+
+
+
+  <paper-header-panel main>
+    <paper-toolbar></paper-toolbar>
+    <div> 
+    <app-router>
+      <app-route path="/users/user-one" name="user-one" import="/elements/user-one/user-one.html"></app-route>
+      <app-route path="/users/user-two" name="user-two" import="/elements/user-two/user-two.html"></app-route>
+      <app-route path="/users/user-three" name="user-three" import="/elements/user-three/user-three.html"></app-route>
+    </app-router>
+    </div>
+  </paper-header-panel>
+</paper-drawer-panel>
+  </div>
+<!--Tab2 Content Ends-->
+
+</iron-pages>
+    
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'my-droneone',
+
+      properties: {
+        foo: {
+          type: String,
+          value: 'my-droneone',
+          notify: true
+        }
+      }
+    });
+  })();
+  </script>
+
+  <script>
+  document.addEventListener('WebComponentsReady', function () {
+    var template = document.querySelector('template[is="dom-bind"]');
+    template.selected = 0; // selected is an index by default
+  });
+</script>
+</dom-module>

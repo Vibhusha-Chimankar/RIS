@@ -1,0 +1,69 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="..\..\bower_components/polymer/polymer.html">
+
+<dom-module id="drone-inbar">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      a.style-scope.drone-inbar {
+    display: block;
+    padding: 10px 5px;
+    border-bottom: 1px solid #999;
+    text-decoration: none;
+    color: #000;
+}
+a.style-scope.drone-inbar.iron-selected {
+    background: #0B9FBD;
+    color: #fff;
+}
+.paper-tabs-0 #tabsContainer.paper-tabs {
+    border-bottom: 2px solid #999;
+}
+
+    </style>
+    <paper-tabs selected="{{selected}}" class="tab-head">
+  <paper-tab><iron-icon icon="icons:menu"></iron-icon></paper-tab>
+  <paper-tab><iron-icon icon="image:photo"></iron-icon></paper-tab>
+</paper-tabs>
+
+<iron-pages selected="{{selected}}">
+  <div>
+  <iron-selector attr-for-selected="name" selected="user-one">
+    <a is="pushstate-anchor" name="user-one" href="/users/user-one">User1</a>
+    <a is="pushstate-anchor" name="user-two" href="/users/user-two">User2</a>
+    <a is="pushstate-anchor" name="user-three" href="/users/user-three">User3</a>
+    </iron-selector>
+  </div>
+  <div>Page 2</div>
+</iron-pages>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'drone-inbar',
+
+      properties: {
+        foo: {
+          type: String,
+          value: 'drone-inbar',
+          notify: true
+        }
+      }
+    });
+  })();
+  </script>
+</dom-module>

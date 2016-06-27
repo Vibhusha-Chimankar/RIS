@@ -1,0 +1,130 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="..\..\bower_components/polymer/polymer.html">
+<style is="custom-style" include="shared-styles"></style>
+<dom-module id="my-drone">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      a.iron-selected {
+    background: #0B9FBD;
+    color: #fff;
+      }
+
+      a.style-scope.my-drone {
+    width: 90%;
+    display: block;
+    padding: 4%;
+    text-decoration: none;
+    border-bottom: 1px solid #999;
+}
+paper-header-panel.drawer-sec.style-scope.my-drone {
+    border: 5px solid #999;
+    position: absolute;
+    width: 100%;
+    border-right: none;
+}
+paper-header-panel.style-scope.my-drone {
+    width: 100%;
+    border: 5px solid #999;
+    position: absolute;
+}
+.icon-sec iron-icon {
+    background: red;
+    color: #fff;
+    opacity: 1 !important;
+    font-size: 12px !important;
+    border-radius: 50%;
+    padding: 4px;
+    margin-right: 10px;
+    box-shadow: none !important;
+    border: none;
+}
+iron-icon.icon-col.x-scope.iron-icon-1 {
+    background: #FFC500;
+}
+
+
+    </style>
+    <paper-drawer-panel id="paperDrawerPanel">
+    <paper-header-panel drawer class="drawer-sec">
+    <paper-toolbar>
+    <div>Application</div>
+    </paper-toolbar>
+    <div>
+    <iron-selector attr-for-selected="name" selected="my-droneone">
+    <a is="pushstate-anchor" name="my-droneone" href="/my-droneone" preload active?="{{selected == 'droneone'}}">
+    <div class="main-sidebar-title">
+            <div class="title-sec"> <iron-icon icon="account-box"></iron-icon>
+            <span>Drone1</span></div>
+            <div class="icon-sec">
+            <iron-icon icon="cloud"></iron-icon>
+            <iron-icon icon="gesture"></iron-icon>
+            <iron-icon class="icon-col" icon="track-changes"></iron-icon>
+            </div>
+            </div>
+
+    </a>
+    <a is="pushstate-anchor" name="my-dronetwo" href="/my-dronetwo">
+      <div class="main-sidebar-title">
+            <div class="title-sec"> <iron-icon icon="info"></iron-icon>
+            <span>Drone2</span></div>
+            <div class="icon-sec">
+            <iron-icon icon="cloud"></iron-icon>
+            <iron-icon class="icon-col" icon="track-changes"></iron-icon>
+            </div>
+            </div>
+
+    </a>
+    <a is="pushstate-anchor" name="my-dronethree" href="/my-dronethree">
+    <div class="main-sidebar-title">
+            <div class="title-sec"> <iron-icon icon="mail"></iron-icon>
+            <span>Drone3</span></div>
+            <div class="icon-sec">
+            <iron-icon icon="cloud"></iron-icon>
+            <iron-icon icon="gesture"></iron-icon>
+            <iron-icon class="icon-col" icon="track-changes"></iron-icon>
+            </div>
+            </div>
+
+
+    </a>
+    </iron-selector>
+    </div>
+    </paper-header-panel>
+    <paper-header-panel main>
+    <div>
+    <app-router id="router" on-activate-route-end="{{routeActivated}}">
+      <app-route path="/my-droneone" import="/elements/my-droneone/my-droneone.html" preload></app-route>
+      <app-route path="/my-dronetwo" import="/elements/my-dronetwo/my-dronetwo.html"></app-route>
+      <app-route path="/my-dronethree" import="/elements/my-dronethree/my-dronethree.html"></app-route>
+    </app-router>
+    </div>
+    </paper-header-panel>
+    </paper-drawer-panel>
+
+  </template>
+  
+  <script>
+    Polymer({
+      is: 'my-drone',
+
+    ready: function() {
+    
+    }
+       
+    });
+
+  </script>
+      
+</dom-module>
